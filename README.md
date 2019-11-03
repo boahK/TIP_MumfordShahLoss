@@ -11,6 +11,7 @@ A PyTorch implementation of deep-learning-based segmentation based on original c
 (*Thanks for Jun-Yan Zhu and Taesung Park, and Tongzhou Wang.)
 
 * Requirements
+  * OS : Ubuntu
   * Python 2.7
   * PyTorch 1.1.0
 
