@@ -3,7 +3,6 @@ from __future__ import print_function, division, absolute_import, unicode_litera
 #import cv2
 import glob
 import numpy as np
-from PIL import Image
 import ipdb
 import matplotlib.pyplot as plt
 import torchvision.transforms as transforms
