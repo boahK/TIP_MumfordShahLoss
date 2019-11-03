@@ -2,14 +2,11 @@ from __future__ import print_function, division, absolute_import, unicode_litera
 import scipy.io as sio
 import h5py
 import numpy as np
-from PIL import Image
 from scipy import misc, ndimage
 import os, os.path
 import ipdb
 import matplotlib.pyplot as plt
 from image_util_unet import BaseDataProvider
-from augment_method_unet import ElasticTransform, Zoom
-from scipy.ndimage.interpolation import rotate
 
 class DataProvider_LiTS(BaseDataProvider):
 
