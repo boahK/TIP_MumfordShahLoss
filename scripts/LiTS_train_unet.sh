@@ -15,7 +15,7 @@ python LiTS_train_unet.py           ^
 --lr_decay_iters 20 ^
 --inputSize 512 ^
 --fineSize 256 ^
---input_nc 3 ^
+--input_nc 1 ^
 --output_nc 2 ^
 --niter 50 ^
 --display_step 5  ^
