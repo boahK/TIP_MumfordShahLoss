@@ -200,78 +200,7 @@ class Visualizer():
         plt.axis('off')
         plt.savefig(save_path)
         plt.close()
-
-    def predict_output(self, label, visuals):
-        label = np.array(label) > 0
-
-        prediction_ = (visuals['fake_B'][0,0].cpu().float().numpy())
-        # prediction = prediction_ >= (np.amax(prediction_))
-        # prediction = prediction_ > ((np.amax(label_))/float(2))
-
-        # Threshold: whole_F = 0.02 / core_F = -0.25 / enhance_C = -0.7
-        prediction = prediction_ > -0.4
-        return label, prediction
-
-    def predict_output_v2(self, label, visuals):
-        label = np.array(label) > 0
-
-        prediction_ = (visuals['fake_B_CE'][0,0,:,:].cpu().float().numpy())
-        # prediction = prediction_ >= (np.amax(prediction_))
-        # prediction = prediction_ > ((np.amax(label_))/float(2))
-
-        # Threshold: whole_F = 0.02 / core_F = -0.25 / enhance_C = -0.7
-        prediction = prediction_ > 0.5
-        return label, prediction
-
-    def predict_output_seg_only(self, label, visuals):
-        label = np.array(label) > 0
-
-        prediction_ = (visuals['fake_B'][0,0,:,:].cpu().float().numpy())
-        # prediction = prediction_ >= (np.amax(prediction_))
-        # ipdb.set_trace()
-
-        # Threshold: whole_F = -0.7
-        prediction = prediction_ > 0.7
-        return label, prediction
-
-    def morphology_operation_liver(self, pred):
-        pred = pred.astype(int)
-        struct1 = ndimage.generate_binary_structure(2, 1)
-        # pred = ndimage.binary_dilation(pred, structure=struct1, iterations=1)
-        # struct = ndimage.generate_binary_structure(2, 2)
-        # pred = ndimage.binary_erosion(pred, structure=struct, iterations=1)
-
-        # pred = ndimage.binary_opening(pred, structure=struct1, iterations=2)
-        pred = ndimage.binary_closing(pred, structure=struct1, iterations=2)
-        # pred = ndimage.binary_opening(pred, structure=struct1, iterations=2)
-        # pred = ndimage.binary_closing(pred, structure=struct1, iterations=1)
-        # pred = ndimage.binary_fill_holes(pred)
-
-        # pred = ndimage.binary_closing(pred, structure=struct, iterations=2)
-        # pred = ndimage.binary_dilation(pred, structure=struct1, iterations=1)
-        # ipdb.set_trace()
-        return pred
-
-    def morphology_operation_tumor(self, pred):
-        pred = pred.astype(int)
-        struct1 = ndimage.generate_binary_structure(2, 1)
-        # pred = ndimage.binary_dilation(pred, structure=struct1, iterations=1)
-        # struct = ndimage.generate_binary_structure(2, 2)
-        # pred = ndimage.binary_erosion(pred, structure=struct, iterations=1)
-        # pred = ndimage.binary_fill_holes(pred)
-        pred = ndimage.binary_opening(pred, structure=struct1, iterations=2)
-        pred = ndimage.binary_closing(pred, structure=struct1, iterations=1)
-        pred = ndimage.binary_opening(pred, structure=struct1, iterations=2)
-
-        # pred = ndimage.binary_opening(pred, structure=struct1, iterations=1)
-        # pred = ndimage.binary_closing(pred, structure=struct1, iterations=1)
-
-        # pred = ndimage.binary_closing(pred, structure=struct, iterations=2)
-        # pred = ndimage.binary_dilation(pred, structure=struct1, iterations=1)
-        # ipdb.set_trace()
-        return pred
-
-
+        
     def calculate_score(self, label, pred,  score):
         if score == "dice":
             intersect = float(np.sum(pred.astype(int) * label.astype(int)))
