@@ -7,8 +7,7 @@ Paper
 
 Implementation
 ===============
-A PyTorch implementation of deep-learning-based segmentation based on original cycleGAN code.
-[https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix] 
+A PyTorch implementation of deep-learning-based segmentation based on original [cycleGAN](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) code.
 (*Thanks for Jun-Yan Zhu and Taesung Park, and Tongzhou Wang.)
 
 * Requirements
