@@ -1,8 +1,9 @@
+This is an official repository for the paper of "Mumford–Shah Loss Functional for Image Segmentation With Deep Learning" published in IEEE Transactions on Image Processing (TIP). 
+
 Paper
 ===============
-* Mumford–Shah Loss Functional for Image Segmentation With Deep Learning
+* [Mumford–Shah Loss Functional for Image Segmentation With Deep Learning](https://ieeexplore.ieee.org/abstract/document/8851405)
   * Authors: Boah Kim and Jong Chul Ye
-  * published in IEEE Transactions on Image Processing (TIP)
 
 Implementation
 ===============
@@ -20,3 +21,17 @@ Main
 * Training: LiTS_train_unet.py which is handled by scripts/LiTS_train_unet.sh
 * A code for Mumford-Shah loss functional is in models/loss.py.
   * 'levelsetLoss' and 'gradientLoss2d' classes compose our Mumford-Shah loss function.
+
+Citation
+===============
+```
+@article{kim2019mumford,
+  title={Mumford--Shah loss functional for image segmentation with deep learning},
+  author={Kim, Boah and Ye, Jong Chul},
+  journal={IEEE Transactions on Image Processing},
+  volume={29},
+  pages={1856--1866},
+  year={2019},
+  publisher={IEEE}
+}
+```
